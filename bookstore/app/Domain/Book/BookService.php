@@ -2,15 +2,8 @@
 
 namespace App\Domain\Book;
 
-use App\Domain\Book;
-
 class BookService {
     protected $bookRepository;
-
-    // public function __construct() {
-    //     print_r("caiu aqui");
-    //     die();
-    // }
 
     public function __construct(BookRepository $bookRepository) {
         $this->bookRepository = $bookRepository;

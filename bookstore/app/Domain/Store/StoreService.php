@@ -1,9 +1,6 @@
 <?php
 
-
-namespace App\Application\Store;
-
-use App\Domain\Store\StoreRepository;
+namespace App\Domain\Store;
 
 class StoreService {
     protected $storeRepository;

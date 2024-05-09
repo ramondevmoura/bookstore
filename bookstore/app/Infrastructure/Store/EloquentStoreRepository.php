@@ -7,7 +7,7 @@ use App\Domain\Store\StoreRepository;
 
 class EloquentStoreRepository implements StoreRepository {
     public function all() {
-        return Store::all();
+         return Store::all();
     }
 
     public function find($id) {

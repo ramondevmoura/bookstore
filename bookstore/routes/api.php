@@ -2,6 +2,12 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\LoginController;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,15 +20,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\StoreController;
+Route::post('/login', [LoginController::class, 'login']);
+Route::post('/register', [LoginController::class, 'register']);
+Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum');
 
 
-// Route::middleware('auth:api')->group(function () {
+
+Route::middleware('auth:sanctum')->group(function () {
     Route::resource('books', BookController::class);
     Route::resource('stores', StoreController::class);
-// });
+ });
 
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+
+

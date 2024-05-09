@@ -10,6 +10,6 @@ class Book extends Model {
     protected $fillable = ['name', 'isbn', 'value'];
 
     public function stores() {
-        return $this->belongsToMany(Store::class);
+        return $this->belongsToMany(Store::class)->withTimestamps();
     }
 }

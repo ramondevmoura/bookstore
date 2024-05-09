@@ -1,18 +1,21 @@
 <?php
 
-
-
 namespace App\Domain\Store;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Domain\Book\Book;
+use App\Models\User;
 
 
 class Store extends Model {
-    protected $fillable = ['name', 'address', 'active'];
+    protected $fillable = ['name', 'address', 'active', 'user_id'];
 
+    public function user() {
+        return $this->belongsTo(User::class);
+    }
+    
     public function books() {
-        return $this->belongsToMany(Book::class);
+        return $this->belongsToMany(Book::class)->withTimestamps();
     }
 
     public function addBook(Book $book) {

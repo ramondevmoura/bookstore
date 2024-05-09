@@ -2,29 +2,68 @@
 
 namespace App\Http\Controllers;
 
-use App\Domain\Book\BookService as BookBookService;
+use App\Domain\Book\BookService as BookService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BookController extends Controller {
     protected $bookService;
     
 
  
-    public function __construct(BookBookService $bookService) {
+    public function __construct(BookService $bookService) {
         $this->bookService = $bookService;
     }
 
     public function index() {
-        return $this->bookService->getAllBooks();
+         $books = $this->bookService->getAllBooks();
+         return response()->json($books);
     }
 
     public function store(Request $request) {
-        return $this->bookService->createBook($request->all());
+
+        $rules = [
+            'name' => 'required|string',
+            'isbn' => 'required|numeric|unique:books',
+            'value' => 'required|numeric'
+        ];
+
+        $messages = [
+            'isbn.numeric' => 'O ISBN deve ser um número.',
+        ];
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors()->all()
+            ], 422); 
+        }
+
+        $book = $this->bookService->createBook($request->all());
+        return response()->json($book, 201);
     }
 
-    public function update(Request $request, $id) {
-        print_r("caiu aqui");
-        die();
+    public function update(Request $request, $id)
+    {
+        $rules = [
+            'name' => 'required|string',
+            'isbn' => 'required|numeric|unique:books,isbn,' . $id,
+            'value' => 'required|numeric',
+        ];
+    
+        $messages = [
+            'isbn.numeric' => 'O ISBN deve ser um número.',
+        ];
+    
+        $validator = Validator::make($request->all(), $rules, $messages);
+    
+        if ($validator->fails()) {
+            return response()->json([
+                'error' => $validator->errors()->all()
+            ], 422); 
+        }
+    
         return $this->bookService->updateBook($id, $request->all());
     }
 
