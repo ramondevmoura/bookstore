@@ -25,11 +25,15 @@ class BookController extends Controller {
         $rules = [
             'name' => 'required|string',
             'isbn' => 'required|numeric|unique:books',
-            'value' => 'required|numeric'
+            'value' => 'required|numeric',
+            'store_ids' => 'required|numeric',
+            'store_ids.*' => 'exists:stores,id' 
         ];
 
         $messages = [
             'isbn.numeric' => 'O ISBN deve ser um número.',
+            'store_ids.array' => 'Stores must be provided as an id.',
+            'store_ids.*.exists' => 'One or more selected stores do not exist.'
         ];
 
         $validator = Validator::make($request->all(), $rules, $messages);
@@ -41,7 +45,12 @@ class BookController extends Controller {
         }
 
         $book = $this->bookService->createBook($request->all());
+
+        $storeIds = $request->input('store_ids');
+        $book->stores()->attach($storeIds);
+
         return response()->json($book, 201);
+        
     }
 
     public function update(Request $request, $id)
