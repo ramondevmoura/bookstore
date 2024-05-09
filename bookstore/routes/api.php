@@ -22,13 +22,12 @@ use Illuminate\Support\Facades\Hash;
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [LoginController::class, 'register']);
-Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:sanctum');
-
 
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('books', BookController::class);
     Route::resource('stores', StoreController::class);
+    Route::post('/logout', [LoginController::class, 'logout']);
  });
 
 
