@@ -21,9 +21,18 @@ Using XAMPP and Postman: Make sure you have XAMPP installed and running for the 
 
 ## evidence
 
-#login
+
     #error login
 ![image](https://github.com/ramondevmoura/bookstore/assets/106551715/b88a3039-cb52-4860-9e8d-135184f5b4da)
 
     #login success with token
 ![image](https://github.com/ramondevmoura/bookstore/assets/106551715/7feb6709-60d4-48ad-a7aa-9ed0380e9b42)
+
+
+    #get in books
+![image](https://github.com/ramondevmoura/bookstore/assets/106551715/e7e0533a-aeba-468c-9a76-7230047242a7)
+
+
+    #get in stores
+![image](https://github.com/ramondevmoura/bookstore/assets/106551715/b5d18716-5225-474b-af43-e66b94f82893)
+
