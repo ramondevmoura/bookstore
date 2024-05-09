@@ -8,31 +8,3 @@ I've developed it with simplicity and efficiency in mind, opting for a streamlin
 
 ![image](https://github.com/ramondevmoura/bookstore/assets/106551715/d9570119-2482-4275-99b6-0fb219f13434)
 
-
-📁 app
-│
-├── 📁 Domain
-│   │
-│   ├── 📁 Book
-│   │   ├── Book.php
-│   │   ├── BookService.php
-│   │   └── BookRepository.php
-│   │   
-│   └── 📁 Store
-│       ├── Store.php
-│       ├── StoreService.php
-│       └── StoreRepository.php
-│   
-├── 📁 Infrastructure
-│   │
-│   ├── 📁 Book
-│   │   └── EloquentBookRepository.php
-│   │    
-│   └── 📁 Store
-│       └── EloquentStoreRepository.php
-│   
-└── 📁 Controllers
-    ├── BookController.php
-    ├── StoreController.php
-    └── LoginController.php
-
