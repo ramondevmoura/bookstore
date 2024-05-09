@@ -26,7 +26,7 @@ class LoginController extends Controller
           
         }
         return response()->json([
-            "message" => "Usuário inválido"
+            "message" => "Invalid User"
         ]);
     }
 
@@ -45,7 +45,7 @@ class LoginController extends Controller
         ]);
      
         return response()->json([
-            "message" => "Sucesso",
+            "message" => "Sucess",
             "user" => $user
         ]);
     }
@@ -55,11 +55,11 @@ class LoginController extends Controller
         if ($request->user()) {
             $request->user()->tokens()->delete();
             return response()->json([
-                'message' => 'Logout realizado com sucesso'
+                'message' => 'Logout completed successfully'
             ]);
         } else {
             return response()->json([
-                'message' => 'Nenhum usuário autenticado'
+                'message' => 'No authenticated users'
             ], 401);
         }
     }
