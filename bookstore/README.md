@@ -9,25 +9,27 @@ I've developed it with simplicity and efficiency in mind, opting for a streamlin
 📁 app
 │
 ├── 📁 Domain
-│ │
-│ ├── 📁 Book
-│ │ ├── Book.php
-│ │ └── BookService.php
-│ │ └── BookRepository.php
-│ │
-│ ├── 📁 Store
-│ │ ├── Store.php
-│ │ └── StoreService.php
-│ │ └── StoreRepository.php
+│   │
+│   ├── 📁 Book
+│   │   ├── Book.php
+│   │   ├── BookService.php
+│   │   └── BookRepository.php
+│   │   
+│   └── 📁 Store
+│       ├── Store.php
+│       ├── StoreService.php
+│       └── StoreRepository.php
+│   
 ├── 📁 Infrastructure
-│ │
-│ ├── 📁 Book
-│ │ └── EloquentBookRepository.php
-│ │
-│ └── 📁 Store
-│ └── EloquentStoreRepository.php
-│
-├── 📁 Controllers
-│ ├── BookController.php
-│ ├── StoreController.php
-│ └── LoginController.php
+│   │
+│   ├── 📁 Book
+│   │   └── EloquentBookRepository.php
+│   │    
+│   └── 📁 Store
+│       └── EloquentStoreRepository.php
+│   
+└── 📁 Controllers
+    ├── BookController.php
+    ├── StoreController.php
+    └── LoginController.php
+
