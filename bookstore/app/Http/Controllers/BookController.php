@@ -31,7 +31,7 @@ class BookController extends Controller {
         ];
 
         $messages = [
-            'isbn.numeric' => 'O ISBN deve ser um número.',
+            'isbn.numeric' => 'The ISBN must be a number.',
             'store_ids.array' => 'Stores must be provided as an id.',
             'store_ids.*.exists' => 'One or more selected stores do not exist.'
         ];
