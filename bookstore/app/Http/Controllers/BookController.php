@@ -62,7 +62,7 @@ class BookController extends Controller {
         ];
     
         $messages = [
-            'isbn.numeric' => 'O ISBN deve ser um número.',
+            'isbn.numeric' => 'The ISBN must be a number.',
         ];
     
         $validator = Validator::make($request->all(), $rules, $messages);
